@@ -1,0 +1,13 @@
+--- #My handler playbook
+- name: notify and handler section
+  hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Install HTTPD server on linux
+      action: yum name=httpd state=installed
+      notify: restart httpd
+  handlers:
+    - name: restart httpd
+      action: name=httpd state=restarted

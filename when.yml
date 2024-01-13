@@ -1,0 +1,15 @@
+---
+- name: Install HTTP in server
+  hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Install apache server for Debian Family
+      command: apt_get -y install apache2
+      when: ansible_os_family == "Debian"
+    - name: Install apache server for Red Hat Family
+      command: yum install httpd -y
+      when: ansible_os_family == "Red Hat"
+      
+        

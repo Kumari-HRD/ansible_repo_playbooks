@@ -1,0 +1,6 @@
+---
+- name: for target check
+  hosts: demo
+  user: ansible
+  become: true
+  connection: ssh

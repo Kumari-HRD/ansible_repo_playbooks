@@ -1,0 +1,14 @@
+---
+- name: Install httpd on server
+  hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  vars:
+    httpd_package_name: httpd
+    httpd_package_state: present
+  tasks:
+    - name: Install httpd package
+      yum:
+        name: "{{ httpd_package_name }}"
+        state: "{{ httpd_package_state }}"

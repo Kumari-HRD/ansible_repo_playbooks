@@ -1,0 +1,11 @@
+---
+- name: install httpd
+  hosts: demo
+  user: ansible
+  become: true
+  connection: ssh
+  tasks:
+    - name: install httpd in linux server
+      command: yum install httpd -y
+    - name: start service
+      command: systemctl start httpd

@@ -1,0 +1,14 @@
+---
+- name: To create user
+  hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Add list of users in my node
+      user: name='{{items}}' state=present
+      with_items:
+        - superman
+        - batman
+        - ironman
+        - spiderman

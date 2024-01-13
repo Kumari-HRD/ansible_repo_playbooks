@@ -1,5 +1,5 @@
 ---
-- name: To create user
+- name: To create users
   hosts: demo
   user: ansible
   become: yes
